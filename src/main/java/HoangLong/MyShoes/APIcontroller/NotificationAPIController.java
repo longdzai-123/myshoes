@@ -1,4 +1,4 @@
-package HoangLong.MyShoes.controller;
+package HoangLong.MyShoes.APIcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

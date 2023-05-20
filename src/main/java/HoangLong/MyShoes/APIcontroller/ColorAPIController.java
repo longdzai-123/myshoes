@@ -1,4 +1,4 @@
-package HoangLong.MyShoes.controller;
+package HoangLong.MyShoes.APIcontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,31 +9,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import HoangLong.MyShoes.dto.CommentDTO;
+import HoangLong.MyShoes.dto.ColorDTO;
 import HoangLong.MyShoes.dto.ResponseDTO;
-import HoangLong.MyShoes.service.CommentService;
+import HoangLong.MyShoes.service.ColorService;
 
 @RestController
 @RequestMapping("/api")
-public class CommentAPIController {
+public class ColorAPIController {
 	@Autowired
-	CommentService commentService;
+	ColorService colorService;
 	
-	@PostMapping("/member/comment/add")
-	public ResponseDTO<CommentDTO> create(@RequestBody CommentDTO commentDTO){
-		commentService.create(commentDTO);
-		return ResponseDTO.<CommentDTO>builder().status(200).data(commentDTO).build();
+	@PostMapping("/color/add")
+	public ResponseDTO<ColorDTO> create(@RequestBody ColorDTO colorDTO){
+		colorService.create(colorDTO);
+		return ResponseDTO.<ColorDTO>builder().status(200).data(colorDTO).build();
 	}
 	
-	@PutMapping("/member/comment/update")
-	public ResponseDTO<Void> update(@RequestBody CommentDTO commentDTO){
-		commentService.update(commentDTO);
+	@PutMapping("/color/update")
+	public ResponseDTO<Void> update(@RequestBody ColorDTO colorDTO){
+		colorService.update(colorDTO);
 		return ResponseDTO.<Void>builder().status(200).build();
 	}
 	
-	@DeleteMapping("/member/comment/{id}")
+	@DeleteMapping("/color/{id}")
 	public ResponseDTO<Void> delete(@PathVariable("id") int id){
-		commentService.delete(id);
+		colorService.delete(id);
 		return ResponseDTO.<Void>builder().status(200).build();
 	}
+
 }

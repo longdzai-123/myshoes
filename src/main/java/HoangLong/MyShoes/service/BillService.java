@@ -1,5 +1,8 @@
 package HoangLong.MyShoes.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.modelmapper.ModelMapper;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import HoangLong.MyShoes.dto.BillDTO;
+import HoangLong.MyShoes.dto.statistic.BillStatistic;
 import HoangLong.MyShoes.entity.Bill;
 import HoangLong.MyShoes.repo.BillRepo;
 
@@ -43,5 +47,16 @@ public class BillService {
 		Bill bill = billRepo.findById(id).orElseThrow(NoResultException::new);
 		BillDTO billDTO = new ModelMapper().map(bill, BillDTO.class);
 		return billDTO;
+	}
+	
+	@Transactional
+	public List<BillStatistic> thongKeTheoThang(){
+		List<Object[]> objects = billRepo.thongkebilltheothang();
+		List<BillStatistic> billStatistics = new ArrayList<BillStatistic>();
+		for (Object[] arr : objects) {
+			BillStatistic billStatistic = new BillStatistic((long) arr[0], String.valueOf(arr[1]) +"/"+String.valueOf(arr[2]));
+		    billStatistics.add(billStatistic);
+		}
+		return billStatistics;
 	}
 }
