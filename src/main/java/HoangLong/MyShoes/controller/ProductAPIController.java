@@ -1,4 +1,4 @@
-package HoangLong.MyShoes.APIcontroller;
+package HoangLong.MyShoes.controller;
 
 import javax.validation.Valid;
 
