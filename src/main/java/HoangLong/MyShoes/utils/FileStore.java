@@ -22,7 +22,7 @@ public class FileStore {
 				String ext = multipartFile.getOriginalFilename().substring(index);
 				String image = prefix + UUID.randomUUID().toString() + ext;
 				
-				File file = new File(UPLOAD_FOLDER+File.separator+"image"+File.separator+ image);
+				File file = new File(UPLOAD_FOLDER+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"image"+File.separator+image);
 				
 				multipartFile.transferTo(file);
 				
@@ -45,7 +45,7 @@ public class FileStore {
 						String ext = multipartFile.getOriginalFilename().substring(index);
 						String image = prefix + UUID.randomUUID().toString() + ext;
 							
-						File file = new File(UPLOAD_FOLDER + File.separator + "image" + File.separator + image);
+						File file = new File(UPLOAD_FOLDER+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"image"+File.separator+image);
 							
 						multipartFile.transferTo(file);
 						images.add(image);
@@ -62,7 +62,7 @@ public class FileStore {
 	// xoa 1 file 
 	public static void deleteFile(String filename) {
 		if(filename != null) {
-			File file = new File(UPLOAD_FOLDER + File.separator + "image" + File.separator + filename);
+			File file = new File(UPLOAD_FOLDER+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"image"+File.separator+filename);
 			if(file.exists()) {
 				file.delete();
 			}
@@ -73,7 +73,7 @@ public class FileStore {
 	    if(filenames != null) {
 	    	for (String filename : filenames) {
 	    		if(filename != null) {
-	    			File file = new File(UPLOAD_FOLDER + File.separator + "image" + File.separator + filename);
+	    			File file = new File(UPLOAD_FOLDER+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"image"+File.separator+filename);
 	    			if(file.exists()) {
 	    				file.delete();
 	    			}
@@ -84,7 +84,7 @@ public class FileStore {
 	
 	// download file
 	public static void downloadFile(String filename, HttpServletResponse response) throws IOException {
-		File file = new File(UPLOAD_FOLDER + File.separator + "image" + File.separator + filename);
+		File file = new File(UPLOAD_FOLDER+File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"static"+File.separator+"image"+File.separator+filename);
 		
 		Files.copy(file.toPath(), response.getOutputStream());	
 	}
