@@ -17,6 +17,7 @@ public interface UserRepo extends JpaRepository<User, Integer>{
 	
 	User findByUsername(String username);
 	
+	
 	@Query("SELECT u FROM User u WHERE u.birthdate = :x")
 	List<User> searchByBirthdate(@Param("x") Date x);
 	

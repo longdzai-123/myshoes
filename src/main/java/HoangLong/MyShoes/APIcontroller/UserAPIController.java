@@ -27,6 +27,7 @@ import HoangLong.MyShoes.dto.UserPrincipal;
 import HoangLong.MyShoes.dto.searchdto.SearchUserDTO;
 import HoangLong.MyShoes.dto.statistic.UserStatistic;
 import HoangLong.MyShoes.security.JwtTokenProvider;
+import HoangLong.MyShoes.service.EmailService;
 import HoangLong.MyShoes.service.UserService;
 import HoangLong.MyShoes.utils.FileStore;
 
@@ -35,6 +36,10 @@ import HoangLong.MyShoes.utils.FileStore;
 public class UserAPIController {
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	EmailService emailService;
+	
 	@Autowired 
 	AuthenticationManager authenticationManager;
 	@Autowired
@@ -57,13 +62,15 @@ public class UserAPIController {
 		return userService.getById(userPrincipal.getId());
 	}
 	
-	// register
-	@PostMapping("/user/add")
+	//register
+	@PostMapping("/user/register")
 	public ResponseDTO<UserDTO> add(@ModelAttribute @Valid UserDTO userDTO) {
 		userDTO.setAvatar(FileStore.getFileName(userDTO.getFile(), "user-"));
 		userService.create(userDTO);
+		emailService.sendEmailRegister(userDTO);
 		return ResponseDTO.<UserDTO>builder().status(200).data(userDTO).build();
 	}
+		
 	
 	@PutMapping("/member/user/update")
 	public ResponseDTO<Void> update(@ModelAttribute @Valid UserDTO userDTO){

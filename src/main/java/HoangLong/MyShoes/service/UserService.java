@@ -34,11 +34,13 @@ public class UserService implements UserDetailsService{
     UserRepo userRepo;
     
     public void create(UserDTO userDTO) {
+    	List<String> roles = new ArrayList<String>();
+    	roles.add("ROLE_MEMBER");
     	User user = new ModelMapper().createTypeMap(UserDTO.class, User.class)
     			.addMappings(map->map.skip(User::setPassword))
     			.map(userDTO);
     	user.setPassword(new BCryptPasswordEncoder(12).encode(userDTO.getPassword()));
-    	
+    	user.setRoles(roles);
     	userRepo.save(user);
     	
     	userDTO.setId(user.getId()); 
@@ -118,6 +120,7 @@ public class UserService implements UserDetailsService{
 			SimpleGrantedAuthority authority = new SimpleGrantedAuthority(role);
 			authorities.add(authority);
 		}
+		
 		UserPrincipal userPrincipal = new UserPrincipal(user.getUsername(), user.getPassword(), authorities);
 		userPrincipal.setId(user.getId());
 		userPrincipal.setName(user.getName());

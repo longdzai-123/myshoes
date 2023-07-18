@@ -22,7 +22,7 @@ public class JwtTokenProvider {
 	@Autowired
 	UserService userService;
 	
-	@Value("${jwt.secret:123456}")
+	@Value("${jwt.secret}") // doc gia tri tu application.properties
 	private String secretKey;
 	   
 	private long validityInMilliseconds = 3600000; //1h

@@ -1,5 +1,7 @@
 package HoangLong.MyShoes.APIcontroller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,4 +71,13 @@ public class ProductAPIController {
 		return ResponseDTO.<PageDTO<ProductDTO>>builder().status(200).data(pageDTO).build();
 		
 	}
+	
+	@GetMapping("/product/all")
+	public List<ProductDTO> searchAll(){
+		return productService.searchAll();
+	}
+	
+	
+	
+	
 }

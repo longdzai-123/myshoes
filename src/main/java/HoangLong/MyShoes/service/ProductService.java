@@ -7,6 +7,8 @@ import javax.persistence.NoResultException;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,6 +22,7 @@ import HoangLong.MyShoes.entity.Category;
 import HoangLong.MyShoes.entity.Product;
 import HoangLong.MyShoes.repo.CategoryRepo;
 import HoangLong.MyShoes.repo.ProductRepo;
+import HoangLong.MyShoes.utils.FileStore;
 
 @Service
 public class ProductService {
@@ -38,6 +41,7 @@ public class ProductService {
 	}
 	
 	@Transactional
+	@CacheEvict(cacheNames = "products", allEntries = true)
 	public void update(ProductDTO productDTO) {
 		Product product = productRepo.findById(productDTO.getId()).orElseThrow(NoResultException::new);
 		Category category = categoryRepo.findById(productDTO.getCategory().getId()).orElseThrow(NoResultException::new);
@@ -53,7 +57,11 @@ public class ProductService {
 	}
 	
 	@Transactional
+	@CacheEvict(cacheNames = "products", allEntries = true)
 	public void delete(int id) {
+		Product product = productRepo.findById(id).orElseThrow(NoResultException::new);
+		String filename = product.getImage();
+		FileStore.deleteFile(filename);
 		productRepo.deleteById(id);
 	}
 	
@@ -65,6 +73,7 @@ public class ProductService {
 	}
 	
 	@Transactional
+	@Cacheable(cacheNames = "products")
 	public PageDTO<ProductDTO> search(SearchDTO searchDTO){
 		Pageable pageable = PageRequest.of(searchDTO.getPage(), searchDTO.getSize());
 		Page<Product> page = productRepo.searchByName("%" + searchDTO.getKeyword() + "%", pageable);
@@ -82,5 +91,15 @@ public class ProductService {
 		pageDTO.setContents(productDTOs);
 		
 		return pageDTO;
+	}
+	
+	public List<ProductDTO> searchAll(){
+		List<Product> products = productRepo.findAll();
+		List<ProductDTO> productDTOs = new ArrayList<>();
+		for (Product product : products) {
+			ProductDTO productDTO = new ModelMapper().map(product, ProductDTO.class);
+			productDTOs.add(productDTO);
+		}
+		return productDTOs;
 	}
 }

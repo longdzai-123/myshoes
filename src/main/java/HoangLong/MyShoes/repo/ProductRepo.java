@@ -17,7 +17,6 @@ public interface ProductRepo extends JpaRepository<Product, Integer> {
 	
 	@Query("SELECT p FROM Product p WHERE p.name LIKE :x")
 	Page<Product> searchByName(@Param("x") String x, Pageable pageable);
-	
-	
+
 	
 }

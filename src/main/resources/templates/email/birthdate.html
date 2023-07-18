@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+<p th:text="${'Xin chào, ' + name}"></p>
+<p> Chúng tôi gửi thông tin truy cập hệ thống của bạn: </p>
+<p th:text="${'- Tên truy cập: ' + email"></p>
+<p th:text="${'- Mật khẩu truy cập: ' + pass}"></p>
+
+<p>Gửi lời chúc mừng  tốt đẹp nhất đến Quý khách hàng nhân ngày sinh nhật.</p>
+<p>Kính chúc Quý khách vui vẻ, hạnh phúc gặp nhiều may mắn và thành công trong cuộc sống.</p>
+<p>Cảm ơn Quý khách đã luôn đồng hành và ủng hộ công ty trong thời gian qua</p>
+</body>
+</html>
