@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileStore {
-	public static String UPLOAD_FOLDER = "D:\\Code Reactjs\\myshoes\\src\\assets\\image";// lay thu muc hien tai cua project de luu
+	public static String UPLOAD_FOLDER = "D:/Code Reactjs/myshoes-ui/src/assets/image/";// lay thu muc hien tai cua project de luu
 	
 	// luu file va return ve ten hinh anh upload 
 	public static String getFileName(MultipartFile multipartFile, String prefix) {
@@ -22,7 +22,7 @@ public class FileStore {
 				String ext = multipartFile.getOriginalFilename().substring(index);
 				String image = prefix + UUID.randomUUID().toString() + ext;
 				
-				File file = new File(UPLOAD_FOLDER);
+				File file = new File(UPLOAD_FOLDER + image);
 				
 				multipartFile.transferTo(file);
 				
@@ -45,7 +45,7 @@ public class FileStore {
 						String ext = multipartFile.getOriginalFilename().substring(index);
 						String image = prefix + UUID.randomUUID().toString() + ext;
 							
-						File file = new File(UPLOAD_FOLDER);
+						File file = new File(UPLOAD_FOLDER + image);
 							
 						multipartFile.transferTo(file);
 						images.add(image);
@@ -62,7 +62,7 @@ public class FileStore {
 	// xoa 1 file 
 	public static void deleteFile(String filename) {
 		if(filename != null) {
-			File file = new File(UPLOAD_FOLDER+filename);
+			File file = new File(UPLOAD_FOLDER + filename);
 			if(file.exists()) {
 				file.delete();
 			}
@@ -73,7 +73,7 @@ public class FileStore {
 	    if(filenames != null) {
 	    	for (String filename : filenames) {
 	    		if(filename != null) {
-	    			File file = new File(UPLOAD_FOLDER+filename);
+	    			File file = new File(UPLOAD_FOLDER + filename);
 	    			if(file.exists()) {
 	    				file.delete();
 	    			}

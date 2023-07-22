@@ -102,4 +102,14 @@ public class ProductService {
 		}
 		return productDTOs;
 	}
+	
+	public List<ProductDTO> searchByName(String keyword){
+		List<Product> products = productRepo.searchByName("%"+keyword+"%");
+		List<ProductDTO> productDTOs = new ArrayList<>();
+		for (Product product : products) {
+			ProductDTO productDTO = new ModelMapper().map(product, ProductDTO.class);
+			productDTOs.add(productDTO);
+		}
+		return productDTOs;
+	}
 }
