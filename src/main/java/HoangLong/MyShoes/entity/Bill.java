@@ -26,6 +26,14 @@ public class Bill {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 	
+	private String name;
+	
+	private String address;
+	
+	private String phone;
+	
+	private double totalPrice;
+	
 	@CreatedDate
 	private Date buyDate;
 	

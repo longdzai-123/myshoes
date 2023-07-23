@@ -49,6 +49,18 @@ public class BillService {
 		return billDTO;
 	}
 	
+	public List<BillDTO> billByUserId(int id){
+		List<Bill> bills = billRepo.billByUserId(id);
+		
+		List<BillDTO> billDTOs = new ArrayList<>();
+		
+		for (Bill bill : bills) {
+			BillDTO billDTO = new ModelMapper().map(bill,BillDTO.class);
+			billDTOs.add(billDTO);
+		}
+		return billDTOs;
+	}
+	
 	@Transactional
 	public List<BillStatistic> thongKeTheoThang(){
 		List<Object[]> objects = billRepo.thongkebilltheothang();

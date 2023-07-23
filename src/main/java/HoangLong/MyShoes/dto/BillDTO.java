@@ -15,6 +15,14 @@ public class BillDTO {
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date buyDate;
 	
+    private String name;
+	
+	private String address;
+	
+	private String phone;
+	
+	private double totalPrice;
+	
 	private UserDTO user;
 	
 	@JsonManagedReference

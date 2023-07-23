@@ -16,6 +16,4 @@ public class MyShoesApplication{
 		SpringApplication.run(MyShoesApplication.class, args);
 	}
 	
-	
-
 }

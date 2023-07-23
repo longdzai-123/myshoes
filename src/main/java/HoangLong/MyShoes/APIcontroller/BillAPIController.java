@@ -50,15 +50,19 @@ public class BillAPIController {
 	     return ResponseDTO.<Void>builder().status(200).build();
 	}
 	
-	@GetMapping("/member/bill/{id}")
-	public ResponseDTO<BillDTO> get(@PathVariable("id") int id){
-		BillDTO billDTO = billService.get(id);
-	     return ResponseDTO.<BillDTO>builder().status(200).data(billDTO).build();
-	}
+//	@GetMapping("/member/bill/{id}")
+//	public ResponseDTO<BillDTO> get(@PathVariable("id") int id){
+//		BillDTO billDTO = billService.get(id);
+//	     return ResponseDTO.<BillDTO>builder().status(200).data(billDTO).build();
+//	}
 	
 	@GetMapping("/admin/bill/statistic")
 	public List<BillStatistic> thongke(){
 		return billService.thongKeTheoThang();
 	}
 	
+	@GetMapping("/member/bill/{id}")
+	public List<BillDTO> billByUserId(@PathVariable("id") int id){
+		return billService.billByUserId(id);
+	}
 }
