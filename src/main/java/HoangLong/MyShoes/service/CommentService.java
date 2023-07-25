@@ -1,5 +1,8 @@
 package HoangLong.MyShoes.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.NoResultException;
 
 import org.modelmapper.ModelMapper;
@@ -33,6 +36,19 @@ public class CommentService {
 	@Transactional
 	public void delete(int id) {
 		commentRepo.deleteById(id);
+	}
+	
+	public List<CommentDTO> commentByProductId(int id){
+		List<Comment> comments = commentRepo.commentByProductId(id);
+		
+		List<CommentDTO> commentDTOs = new ArrayList<>();
+		
+		for (Comment comment : comments) {
+			CommentDTO commentDTO = new ModelMapper().map(comment, CommentDTO.class);
+			commentDTOs.add(commentDTO);
+		}
+		
+		return commentDTOs;
 	}
 	
 	

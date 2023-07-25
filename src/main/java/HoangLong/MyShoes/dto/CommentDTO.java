@@ -14,7 +14,7 @@ public class CommentDTO {
 	
 	private ProductDTO product;
 	
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm",timezone = "Asia/Ho_Chi_Minh")
 	private Date cmtDate;
 	
 	private UserDTO user;
