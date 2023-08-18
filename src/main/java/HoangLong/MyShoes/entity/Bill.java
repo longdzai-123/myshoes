@@ -1,7 +1,7 @@
 package HoangLong.MyShoes.entity;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -41,5 +41,5 @@ public class Bill {
 	private User user;
 	
 	@OneToMany(mappedBy = "bill", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<BillItem> billItems;
+	private Set<BillItem> billItems;
 }

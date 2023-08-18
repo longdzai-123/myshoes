@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 
 import HoangLong.MyShoes.entity.User;
 
-public interface UserRepo extends JpaRepository<User, Integer>{
+public interface UserRepo extends JpaRepository<User, Integer>{ 
 	
 	User findByName(String name);
 	

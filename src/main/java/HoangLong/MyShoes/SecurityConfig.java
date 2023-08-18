@@ -42,7 +42,7 @@ public class SecurityConfig {
 		return authenticationConfiguration.getAuthenticationManager();
 		
 	}
-	
+	// cau hinh va phan quyen cho nguoi dung
 	@Bean
 	protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests()
@@ -53,7 +53,7 @@ public class SecurityConfig {
 		    .anyRequest().permitAll()
 		    
 		    .and().csrf().disable().cors()
-		    
+		    // cau hinh bao mat cors trang web
 		    .configurationSource(new CorsConfigurationSource() {
 				@Override
 				public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {

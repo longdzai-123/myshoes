@@ -70,7 +70,7 @@ public class UserAPIController {
 		emailService.sendEmailRegister(userDTO);
 		return ResponseDTO.<UserDTO>builder().status(200).data(userDTO).build();
 	}
-		
+	
 	
 	@PutMapping("/member/user/update")
 	public ResponseDTO<Void> update(@ModelAttribute @Valid UserDTO userDTO){

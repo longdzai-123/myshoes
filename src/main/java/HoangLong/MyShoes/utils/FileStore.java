@@ -28,7 +28,7 @@ public class FileStore {
 				
 				return image;
 			} catch (Exception e) {
-				
+
 			}
 		}
 		return null;

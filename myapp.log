@@ -1,0 +1,41 @@
+2023-08-11 13:34:55.134  INFO 5324 --- [restartedMain] HoangLong.MyShoes.MyShoesApplication     : Starting MyShoesApplication using Java 1.8.0_45 on LONG with PID 5324 (C:\Users\lehoa\eclipse-workspace\MyShoes\target\classes started by lehoa in C:\Users\lehoa\eclipse-workspace\MyShoes)
+2023-08-11 13:34:55.151  INFO 5324 --- [restartedMain] HoangLong.MyShoes.MyShoesApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-08-11 13:34:55.715  INFO 5324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-11 13:34:55.716  INFO 5324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-11 13:34:57.334  INFO 5324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-11 13:34:57.472  INFO 5324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 117 ms. Found 9 JPA repository interfaces.
+2023-08-11 13:34:59.421  INFO 5324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2023-08-11 13:34:59.445  INFO 5324 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-11 13:34:59.445  INFO 5324 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2023-08-11 13:34:59.620  INFO 5324 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-11 13:34:59.621  INFO 5324 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3904 ms
+2023-08-11 13:34:59.973  INFO 5324 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-11 13:35:00.099  INFO 5324 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-11 13:35:00.437  INFO 5324 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-11 13:35:00.689  INFO 5324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-11 13:35:01.329  INFO 5324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-11 13:35:01.368  INFO 5324 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-11 13:35:03.441  INFO 5324 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-11 13:35:03.462  INFO 5324 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-11 13:35:05.402  INFO 5324 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@163d7cd5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d7328e0, org.springframework.security.web.context.SecurityContextPersistenceFilter@4fee0bdc, org.springframework.security.web.header.HeaderWriterFilter@58a79756, org.springframework.web.filter.CorsFilter@7086aaea, org.springframework.security.web.authentication.logout.LogoutFilter@486c8edb, HoangLong.MyShoes.security.JwtTokenFilter@1ee67715, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3d8afcdd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1072b7ad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63c06bc8, org.springframework.security.web.session.SessionManagementFilter@6875a96b, org.springframework.security.web.access.ExceptionTranslationFilter@31deaa1d, org.springframework.security.web.access.intercept.AuthorizationFilter@e8b3a2e]
+2023-08-11 13:35:05.757  WARN 5324 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-11 13:35:07.585  INFO 5324 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-11 13:35:07.662  INFO 5324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8082 (http) with context path ''
+2023-08-11 13:35:07.689  INFO 5324 --- [restartedMain] HoangLong.MyShoes.MyShoesApplication     : Started MyShoesApplication in 13.421 seconds (JVM running for 14.296)
+2023-08-11 22:25:51.464  INFO 11984 --- [restartedMain] HoangLong.MyShoes.MyShoesApplication     : Starting MyShoesApplication using Java 1.8.0_45 on LONG with PID 11984 (C:\Users\lehoa\eclipse-workspace\MyShoes\target\classes started by lehoa in C:\Users\lehoa\eclipse-workspace\MyShoes)
+2023-08-11 22:25:51.470  INFO 11984 --- [restartedMain] HoangLong.MyShoes.MyShoesApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-08-11 22:25:53.176  INFO 11984 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-11 22:25:53.177  INFO 11984 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-11 22:25:58.072  INFO 11984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-11 22:25:58.605  INFO 11984 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 496 ms. Found 9 JPA repository interfaces.
+2023-08-11 22:26:04.358  INFO 11984 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8082 (http)
+2023-08-11 22:26:04.411  INFO 11984 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-11 22:26:04.416  INFO 11984 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2023-08-11 22:26:04.876  INFO 11984 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-11 22:26:04.877  INFO 11984 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 11698 ms
+2023-08-11 22:26:05.831  INFO 11984 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-11 22:26:06.457  INFO 11984 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-11 22:26:07.292  INFO 11984 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-11 22:26:07.994  INFO 11984 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-11 22:26:09.469  INFO 11984 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-11 22:26:09.611  INFO 11984 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect

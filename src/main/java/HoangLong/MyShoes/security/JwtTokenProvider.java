@@ -28,6 +28,7 @@ public class JwtTokenProvider {
 	private long validityInMilliseconds = 3600000; //1h
 	
 	public String createToken(String username) {
+		// claims la mot bieu thuc ve mot thuc the 
 		Claims claims = Jwts.claims().setSubject(username);
 		Date now = new Date();
 		Date validity = new Date(now.getTime() + validityInMilliseconds);
