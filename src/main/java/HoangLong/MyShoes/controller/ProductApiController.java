@@ -25,7 +25,7 @@ import HoangLong.MyShoes.utils.FileStore;
 
 @RestController
 @RequestMapping("/api")
-public class ProductAPIController {
+public class ProductApiController {
 	
 	@Autowired
 	ProductService productService;

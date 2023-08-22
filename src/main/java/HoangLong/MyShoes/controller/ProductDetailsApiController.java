@@ -16,7 +16,7 @@ import HoangLong.MyShoes.service.ProductDetailsService;
 
 @RestController
 @RequestMapping("/api")
-public class ProductDetailsAPIController {
+public class ProductDetailsApiController {
 	@Autowired
 	ProductDetailsService productDetailsService;
 	

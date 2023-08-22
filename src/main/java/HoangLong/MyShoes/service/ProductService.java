@@ -25,13 +25,14 @@ import HoangLong.MyShoes.repo.ProductRepo;
 import HoangLong.MyShoes.utils.FileStore;
 
 @Service
+@Transactional
 public class ProductService {
 	@Autowired
 	ProductRepo productRepo;
 	@Autowired
 	CategoryRepo categoryRepo;
 	
-	@Transactional
+	
 	public void create(ProductDTO productDTO) {
 		Category category = categoryRepo.findById(productDTO.getCategory().getId()).orElseThrow(NoResultException::new);
 		Product product = new ModelMapper().map(productDTO, Product.class);
@@ -40,7 +41,7 @@ public class ProductService {
 		productDTO.setId(product.getId());
 	}
 	
-	@Transactional
+	
 	@CacheEvict(cacheNames = "products", allEntries = true)
 	public void update(ProductDTO productDTO) {
 		Product product = productRepo.findById(productDTO.getId()).orElseThrow(NoResultException::new);
@@ -56,7 +57,7 @@ public class ProductService {
 		productRepo.save(productUpdate);
 	}
 	
-	@Transactional
+	
 	@CacheEvict(cacheNames = "products", allEntries = true)
 	public void delete(int id) {
 		Product product = productRepo.findById(id).orElseThrow(NoResultException::new);
@@ -65,14 +66,14 @@ public class ProductService {
 		productRepo.deleteById(id);
 	}
 	
-	@Transactional
+	
 	public ProductDTO get(int id) {
 		Product product = productRepo.findById(id).orElseThrow(NoResultException::new);
 		ProductDTO productDTO = new ModelMapper().map(product, ProductDTO.class);
 		return productDTO;
 	}
 	
-	@Transactional
+	
 	@Cacheable(cacheNames = "products")
 	public PageDTO<ProductDTO> search(SearchDTO searchDTO){
 		Pageable pageable = PageRequest.of(searchDTO.getPage(), searchDTO.getSize());

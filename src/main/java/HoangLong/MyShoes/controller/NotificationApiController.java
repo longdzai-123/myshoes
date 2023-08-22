@@ -15,7 +15,7 @@ import HoangLong.MyShoes.service.NotificationService;
 
 @RestController
 @RequestMapping("/api")
-public class NotificationAPIController {
+public class NotificationApiController {
 	@Autowired
 	NotificationService notificationService;
 	

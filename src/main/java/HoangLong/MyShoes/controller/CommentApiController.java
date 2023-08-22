@@ -18,7 +18,7 @@ import HoangLong.MyShoes.service.CommentService;
 
 @RestController
 @RequestMapping("/api")
-public class CommentAPIController {
+public class CommentApiController {
 	@Autowired
 	CommentService commentService;
 	

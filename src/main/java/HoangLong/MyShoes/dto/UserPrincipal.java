@@ -24,7 +24,4 @@ public class UserPrincipal extends User{
 	public UserPrincipal(String username, String password,Collection<? extends GrantedAuthority> authorities) {
 		super(username, password, authorities);
 	}
-
-	
-
 }

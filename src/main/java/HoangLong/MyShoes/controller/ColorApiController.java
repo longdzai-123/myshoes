@@ -9,31 +9,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import HoangLong.MyShoes.dto.ColorDTO;
 import HoangLong.MyShoes.dto.ResponseDTO;
-import HoangLong.MyShoes.dto.SizeDTO;
-import HoangLong.MyShoes.service.SizeService;
+import HoangLong.MyShoes.service.ColorService;
 
 @RestController
 @RequestMapping("/api")
-public class SizeAPIController {
+public class ColorApiController {
 	@Autowired
-	SizeService sizeService;
+	ColorService colorService;
 	
-	@PostMapping("/size/add")
-	public ResponseDTO<SizeDTO> create(@RequestBody SizeDTO sizeDTO){
-		sizeService.create(sizeDTO);
-		return ResponseDTO.<SizeDTO>builder().status(200).data(sizeDTO).build();
+	@PostMapping("/color/add")
+	public ResponseDTO<ColorDTO> create(@RequestBody ColorDTO colorDTO){
+		colorService.create(colorDTO);
+		return ResponseDTO.<ColorDTO>builder().status(200).data(colorDTO).build();
 	}
 	
-	@PutMapping("/size/update")
-	public ResponseDTO<Void> update(@RequestBody SizeDTO sizeDTO){
-		sizeService.update(sizeDTO);
+	@PutMapping("/color/update")
+	public ResponseDTO<Void> update(@RequestBody ColorDTO colorDTO){
+		colorService.update(colorDTO);
 		return ResponseDTO.<Void>builder().status(200).build();
 	}
 	
-	@DeleteMapping("/size/{id}")
+	@DeleteMapping("/color/{id}")
 	public ResponseDTO<Void> delete(@PathVariable("id") int id){
-		sizeService.delete(id);
+		colorService.delete(id);
 		return ResponseDTO.<Void>builder().status(200).build();
 	}
 

@@ -15,25 +15,26 @@ import HoangLong.MyShoes.entity.Comment;
 import HoangLong.MyShoes.repo.CommentRepo;
 
 @Service
+@Transactional
 public class CommentService {
 	@Autowired
 	CommentRepo commentRepo;
 	
-	@Transactional
+	
 	public void create(CommentDTO commentDTO) {
 		Comment comment = new ModelMapper().map(commentDTO, Comment.class);
 		commentRepo.save(comment);
 		commentDTO.setId(comment.getId());
 	}
 	
-	@Transactional
+	
 	public void update(CommentDTO commentDTO) {
 		Comment comment = commentRepo.findById(commentDTO.getId()).orElseThrow(NoResultException::new);
 		comment.setContent(commentDTO.getContent());
 		commentRepo.save(comment);
 	}
 	
-	@Transactional
+	
 	public void delete(int id) {
 		commentRepo.deleteById(id);
 	}

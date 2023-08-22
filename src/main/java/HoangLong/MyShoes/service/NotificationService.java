@@ -12,18 +12,19 @@ import HoangLong.MyShoes.entity.Notification;
 import HoangLong.MyShoes.repo.NotificationRepo;
 
 @Service
+@Transactional
 public class NotificationService {
 	@Autowired
 	NotificationRepo notificationRepo;
 	
-	@Transactional
+	
 	public void create(NotificationDTO notificationDTO) {
 		Notification notification = new ModelMapper().map(notificationDTO, Notification.class);
 		notificationRepo.save(notification);
 		notificationDTO.setId(notification.getId());
 	}
 	
-	@Transactional
+	
 	public void update(NotificationDTO notificationDTO) {
 		Notification notification = notificationRepo.findById(notificationDTO.getId()).orElseThrow(NoResultException::new);
 		notification.setContent(notificationDTO.getContent());
@@ -32,7 +33,7 @@ public class NotificationService {
 		notificationRepo.save(notification);
 	}
 	
-	@Transactional
+	
 	public void delete(int id) {
 		notificationRepo.deleteById(id);
 	}

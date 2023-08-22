@@ -16,7 +16,7 @@ import HoangLong.MyShoes.service.CategoryService;
 
 @RestController
 @RequestMapping("/api")
-public class CategoryAPIController {
+public class CategoryApiController {
 	@Autowired
 	CategoryService categoryService;
 	

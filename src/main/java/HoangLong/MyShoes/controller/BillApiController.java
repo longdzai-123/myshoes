@@ -23,7 +23,7 @@ import HoangLong.MyShoes.service.UserService;
 
 @RestController
 @RequestMapping("/api")
-public class BillAPIController {
+public class BillApiController {
 	@Autowired
 	BillService billService;
 	@Autowired

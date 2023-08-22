@@ -12,17 +12,18 @@ import HoangLong.MyShoes.entity.ProductDetails;
 import HoangLong.MyShoes.repo.ProductDetailsRepo;
 
 @Service
+@Transactional
 public class ProductDetailsService {
 	@Autowired
 	ProductDetailsRepo productDetailsRepo;
 	
-	@Transactional
+
 	public void create(ProductDetailsDTO productDetailsDTO) {
 		ProductDetails productDetails = new ModelMapper().map(productDetailsDTO, ProductDetails.class);
 		productDetailsRepo.save(productDetails);
 	}
 	
-	@Transactional
+
 	public void update(ProductDetailsDTO productDetailsDTO) {
 		ProductDetails productDetails = productDetailsRepo.findById(productDetailsDTO.getId()).orElseThrow(NoResultException::new);
 		ModelMapper mapper = new ModelMapper();
@@ -31,12 +32,12 @@ public class ProductDetailsService {
 		productDetailsRepo.save(productDetailsUpdate);
 	}
 	
-	@Transactional
+
 	public void delete(int id) {
 		productDetailsRepo.deleteById(id);
 	}
 	
-	@Transactional
+	
 	public ProductDetailsDTO get(int id) {
 		ProductDetails productDetails = productDetailsRepo.findById(id).orElseThrow(NoResultException::new);
 		ProductDetailsDTO productDetailsDTO = new ModelMapper().map(productDetails, ProductDetailsDTO.class);

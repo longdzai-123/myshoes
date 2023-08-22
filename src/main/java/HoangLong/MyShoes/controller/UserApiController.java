@@ -33,14 +33,14 @@ import HoangLong.MyShoes.utils.FileStore;
 
 @RestController
 @RequestMapping("/api")
-public class UserAPIController {
+public class UserApiController {
 	@Autowired
 	UserService userService;
 	
 	@Autowired
 	EmailService emailService;
 	
-	@Autowired 
+	@Autowired
 	AuthenticationManager authenticationManager;
 	@Autowired
 	JwtTokenProvider jwtTokenProvider;

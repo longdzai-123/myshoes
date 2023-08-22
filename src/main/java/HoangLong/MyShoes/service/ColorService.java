@@ -12,25 +12,26 @@ import HoangLong.MyShoes.entity.Color;
 import HoangLong.MyShoes.repo.ColorRepo;
 
 @Service
+@Transactional
 public class ColorService {
 	@Autowired
 	ColorRepo colorRepo;
 	
-	@Transactional
+	
 	public void create(ColorDTO colorDTO) {
 		Color color = new ModelMapper().map(colorDTO, Color.class);
 		colorRepo.save(color);
 		colorDTO.setId(color.getId());
 	}
 	
-	@Transactional
+	
 	public void update(ColorDTO colorDTO) {
 		 Color color = colorRepo.findById(colorDTO.getId()).orElseThrow(NoResultException::new); // dấu :: trong java 8 tham chiếu đến phương thức bởi tên của phương thức.
 		 color.setName(colorDTO.getName());
 		 colorRepo.save(color);
 	}
 	
-	@Transactional
+	
 	public void delete(int id) {
 		colorRepo.deleteById(id);
 	}
